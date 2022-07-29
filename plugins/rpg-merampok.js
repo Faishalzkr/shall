@@ -1,5 +1,5 @@
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-let dapat = (Math.floor(Math.random() * 100000))
+let dapat = (Math.floor(Math.random() * 9999999))
 let nomors = m.sender
   let who
   if (m.isGroup) who = m.mentionedJid[0]
