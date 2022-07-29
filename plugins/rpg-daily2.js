@@ -4,10 +4,10 @@ let handler = async (m, { conn }) => {
     let _timers = (86400000 - __timers)
     let timers = clockString(_timers) 
     if (new Date - user.lastclaim2 > 86400000) {
-        conn.reply(m.chat, `Anda sudah mengklaim dan mendapatkan 300 XP, 1000 💵money dan 1 potion`, m)
-        global.db.data.users[m.sender].money += 1000
-        global.db.data.users[m.sender].potion += 1
-        global.db.data.users[m.sender].exp += 300
+        conn.reply(m.chat, `Anda sudah mengklaim dan mendapatkan 1000 XP, 5000 💵money dan 10 potion`, m)
+        global.db.data.users[m.sender].money += 5000
+        global.db.data.users[m.sender].potion += 10
+        global.db.data.users[m.sender].exp += 1000
         global.db.data.users[m.sender].lastclaim2 = new Date * 1
     } else {
         let buttons = button(`silahkan tunggu *🕒${timers}* lagi untuk bisa mengclaim lagi`, user)
@@ -50,7 +50,7 @@ function button(teks, user) {
     let weekly = new Date - user.lastweekly > 604800000
     console.log({claim, monthly, weekly})
     
-    if (monthly) buttons.push({buttonId: `.monthly`, buttonText: {displayText: 'BUANAN'}, type: 1})
+    if (monthly) buttons.push({buttonId: `.monthly`, buttonText: {displayText: 'BULANAN'}, type: 1})
     if (weekly) buttons.push({buttonId: `.weekly`, buttonText: {displayText: 'MINGGUAN'}, type: 1})
     if (claim) buttons.push({buttonId: `.claim2`, buttonText: {displayText: 'HARIAN2'}, type: 1})
     if (buttons.length == 0) throw teks
